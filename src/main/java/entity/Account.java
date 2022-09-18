@@ -16,6 +16,9 @@ public class Account {
     @Basic
     private String name;
 
+    @Version
+    private Integer version;
+
     @OneToMany(mappedBy = "debitedAccount")
     private Set<Transaction> debitedTransactions;
 
@@ -52,5 +55,13 @@ public class Account {
 
     public void setCreditedTransactions(Set<Transaction> creditedTransactions) {
         this.creditedTransactions = creditedTransactions;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }

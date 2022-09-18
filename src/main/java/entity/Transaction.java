@@ -24,6 +24,9 @@ public class Transaction {
     @Basic
     private BigDecimal amount;
 
+    @Version
+    private Integer version;
+
     public Integer getId() {
         return id;
     }
@@ -54,5 +57,13 @@ public class Transaction {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
