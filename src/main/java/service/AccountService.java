@@ -1,13 +1,16 @@
 package service;
 
+import entity.Account;
 import jakarta.ejb.Local;
 
 @Local
 public interface AccountService {
 
     /**
-     * @param accountId
+     * Update account name
+     *
+     * @param account
      * @param name
      */
-    void updateAccountName(Integer accountId, String name);
+    void updateAccountName(Account account, String name);
 }

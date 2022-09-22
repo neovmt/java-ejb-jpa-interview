@@ -12,8 +12,8 @@ public class AccountServiceImpl implements AccountService {
     private EntityManager entityManager;
 
     @Override
-    public void updateAccountName(Integer accountId, String name) {
-        Account account = entityManager.find(Account.class, accountId);
-        account.setName(name);
+    public void updateAccountName(Account account, String name) {
+        Account entity = entityManager.find(Account.class, account.getId());
+        entity.setName(name);
     }
 }
