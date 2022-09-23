@@ -4,7 +4,6 @@ import entity.Account;
 import entity.Transaction;
 import jakarta.ejb.Local;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,11 +19,11 @@ public interface TransactionService {
     List<Transaction> loadCreditedTransactions(Collection<Integer> accountIds);
 
     /**
-     * Create transaction from debitedAccount to createTransaction
+     * Check if transaction exists for given account
      *
-     * @param debitedAccount
-     * @param creditedAccount
-     * @param amount
+     * @param account
+     * @param transaction
+     * @return
      */
-    void createTransaction(Account debitedAccount, Account creditedAccount, BigDecimal amount);
+    boolean transactionExists(Account account, Transaction transaction);
 }

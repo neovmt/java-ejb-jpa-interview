@@ -15,5 +15,7 @@ public class AccountServiceImpl implements AccountService {
     public void updateAccountName(Account account, String name) {
         Account entity = entityManager.find(Account.class, account.getId());
         entity.setName(name);
+        entityManager.merge(entity);
+        entityManager.clear();
     }
 }
