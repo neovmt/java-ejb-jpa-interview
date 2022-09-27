@@ -13,9 +13,10 @@ public class Account {
     @SequenceGenerator(name = "ACCOUNTS_ID_SEQ", allocationSize = 1)
     private Integer id;
 
-    @Basic
+    @Column(name = "NAME")
     private String name;
 
+    @Column(name = "VERSION")
     @Version
     private Integer version;
 

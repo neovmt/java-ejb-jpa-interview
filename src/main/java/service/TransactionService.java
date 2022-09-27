@@ -1,6 +1,5 @@
 package service;
 
-import entity.Account;
 import entity.Transaction;
 import jakarta.ejb.Local;
 
@@ -18,12 +17,4 @@ public interface TransactionService {
      */
     List<Transaction> loadCreditedTransactions(Collection<Integer> accountIds);
 
-    /**
-     * Check if transaction exists for given account
-     *
-     * @param account
-     * @param transaction
-     * @return
-     */
-    boolean transactionExists(Account account, Transaction transaction);
 }

@@ -27,10 +27,4 @@ public class TransactionServiceImpl implements TransactionService {
 
         return results;
     }
-
-    @Override
-    public boolean transactionExists(Account account, Transaction transaction) {
-        return account.getCreditedTransactions().contains(transaction) ||
-                account.getDebitedTransactions().contains(transaction);
-    }
 }

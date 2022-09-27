@@ -4,9 +4,17 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+import static entity.Transaction.Q_FIND_BY_AMOUNT;
+
+@NamedQueries(
+        @NamedQuery(name = Q_FIND_BY_AMOUNT,
+                query = "select t from Transaction t where t.amount > :amount")
+)
 @Entity
 @Table(name = "TRANSACTIONS")
 public class Transaction {
+
+    public static final String Q_FIND_BY_AMOUNT = "Transaction.Q_FIND_BY_AMOUNT";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TRANSACTIONS_ID_SEQ")
@@ -21,10 +29,11 @@ public class Transaction {
     @JoinColumn(name = "CREDITED_ACCOUNT")
     private Account creditedAccount;
 
-    @Basic
+    @Column(name = "AMOUNT")
     private BigDecimal amount;
 
     @Version
+    @Column(name = "VERSION")
     private Integer version;
 
     public Integer getId() {
