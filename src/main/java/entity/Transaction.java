@@ -21,11 +21,11 @@ public class Transaction {
     @SequenceGenerator(name = "TRANSACTIONS_ID_SEQ", allocationSize = 1)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEBITED_ACCOUNT")
     private Account debitedAccount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CREDITED_ACCOUNT")
     private Account creditedAccount;
 
